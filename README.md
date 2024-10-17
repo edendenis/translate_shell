@@ -42,7 +42,7 @@ Para instalar o `translate-shell` no `Linux Ubuntu`, você pode seguir estes pas
 
 3. Para instalar o Google Translate para ser usado a partir do terminal no `Linux Ubuntu`, você pode usar uma ferramenta chamada `translate-shell`. Ela é um aplicativo de linha de comando que permite usar o Google Translate, Bing Translator, Yandex. Translate e outros serviços de tradução diretamente do terminal. Aqui estão os passos para instalá-lo:
 
-4. **Instale o Translate-Shell:** Após atualizar os pacotes, instale o `translate-shell` usando o seguinte comando: `sudo apt install translate-shell -y`
+4. **Instale o `Translate-Shell`:** Após atualizar os pacotes, instale o `translate-shell` usando o seguinte comando: `sudo apt install translate-shell -y`
 
 5. **Verifique a Instalação:** Depois de instalar, você pode verificar se a instalação foi bem-sucedida executando o comando `trans`: `trans -V`
 
@@ -50,16 +50,16 @@ Para instalar o `translate-shell` no `Linux Ubuntu`, você pode seguir estes pas
 
 Lembre-se de que o `translate-shell` usa APIs de tradução online, então você precisará de uma conexão com a internet para usar essa ferramenta.
 
-### 1.1 Código completo para configurar/instalar
+### 1.1 Código completo para configurar/instalar/usar
 
-Para configurar/instalar o `translate-sheel` no `Linux Ubuntu` sem precisar digitar linha por linha, você pode seguir estas etapas:
+Para configurar/instalar/usar o `translate-sheel` no `Linux Ubuntu` sem precisar digitar linha por linha, você pode seguir estas etapas:
 
-1. Abra o terminal. Você pode fazer isso pressionando: `Ctrl + Alt + T`
+1. Abra o `Terminal Emulator`. Você pode fazer isso pressionando: `Ctrl + Alt + T`
 
 2. Digite o seguinte comando e pressione `Enter`:
 
     ```
-    sudo apt clean                                                            ─╯
+    sudo apt clean
     sudo apt autoclean
     sudo apt autoremove -y
     sudo apt update
@@ -178,7 +178,7 @@ Esta ferramenta pode identificar o idioma do texto fonte automaticamente. **Por 
 1. Modo dicionário. Para usar esta ferramenta como dicionário, basta **adicionar a opção `-d`** ao comando:
 
     ```
-    trans -d :pt-BR Thanks                   
+    trans -d :pt-BR Thanks
     Thanks
 
     (♂) Obrigado
@@ -289,7 +289,7 @@ Isso é útil quando você precisa traduzir várias palavras ou frases em sequê
 
 - Você pode continuar inserindo palavras ou frases adicionais sem a necessidade de reiniciar o comando. O `shell` interativo permanecerá aberto até você decidir sair, geralmente pressionando `:q`.
 
-Isso é útil quando você precisa traduzir várias palavras ou frases em sequência, economizando tempo e tornando o processo mais interativo. No exemplo que você forneceu, a palavra "thanks" foi traduzida para "obrigado" no contexto do `shell` interativo do Translate Shell.
+Isso é útil quando você precisa traduzir várias palavras ou frases em sequência, economizando tempo e tornando o processo mais interativo. No exemplo que você forneceu, a palavra "thanks" foi traduzida para "obrigado" no contexto do `shell` interativo do `Translate Shell`.
 
 ### 2.8 Ajuda [3]
 
@@ -416,7 +416,9 @@ Suponha que você tem o seguinte texto com múltiplas quebras de linha entre os 
 3. **Usar o `translate-shell` para traduzir o texto sem quebras de linha:** `trans -brief en:pt-BR "$texto_sem_quebras"`
 
 
-### 3.3 Uma quebra de linha e mulíplas quebras de linha
+### 3.3 Uma quebra de linha e multíplas quebras de linha
+
+#### 3.3.1 Uma quebra de linha
 
 Você deseja remover tanto as quebras de linha individuais quanto as múltiplas quebras de linha entre os parágrafos. Você pode fazer isso em etapas separadas, primeiro removendo as quebras de linha individuais e depois removendo as múltiplas quebras de linha. Aqui está como você pode fazer isso:
 
@@ -430,7 +432,10 @@ Você deseja remover tanto as quebras de linha individuais quanto as múltiplas 
 
 2. **Remova as quebras de linha individuais:** `texto_sem_quebras_individuais=$(echo "$texto_com_quebras" | tr -d '\n')`
 
-3. **Remover múltiplas quebras de linha entre os parágrafos:** Defina o texto com múltiplas quebras de linha entre os parágrafos:
+
+#### 3.3.2 Multíplas quebras de linha
+
+1. **Remover múltiplas quebras de linha entre os parágrafos:** Defina o texto com múltiplas quebras de linha entre os parágrafos:
 
     ```
     texto_com_mais_quebras="Este é o primeiro parágrafo.
@@ -441,11 +446,45 @@ Você deseja remover tanto as quebras de linha individuais quanto as múltiplas 
     Este é o terceiro parágrafo."
     ```
 
-4. **Remova múltiplas quebras de linha entre os parágrafos:** `texto_sem_mais_quebras=$(echo "$texto_com_mais_quebras" | sed '/^$/N;/^\n$/D')`
+2. **Remova múltiplas quebras de linha entre os parágrafos:** `texto_sem_mais_quebras=$(echo "$texto_com_mais_quebras" | sed '/^$/N;/^\n$/D')`
 
-5. **Usar o `translate-shell` para traduzir o texto sem quebras de linha:** `trans -brief en:pt-BR "$texto_sem_mais_quebras"`
+3. **Usar o `translate-shell` para traduzir o texto sem quebras de linha:** `trans -brief en:pt-BR "$texto_sem_mais_quebras"`
 
 Agora, você tem duas variáveis: `texto_sem_quebras_individuais` e `texto_sem_mais_quebras`, cada uma contendo o texto processado sem as quebras de linha desejadas. Você pode usar essas variáveis separadamente para tradução ou combiná-las de acordo com suas necessidades.
+
+#### 3.3.3 Remover quebras de linha e manter espaços entre parágrafos
+
+1. **Defina o texto com quebras de linha e múltiplas quebras de linha:** 
+
+    ```bash
+    texto_com_quebras="Este é o primeiro parágrafo.
+
+    Este é o segundo parágrafo.
+
+
+    Este é o terceiro parágrafo."
+    ```
+
+2. **Remover quebras de linha e manter espaços entre os parágrafos:** Você pode usar o seguinte comando para substituir as quebras de linha por espaços e remover múltiplos espaços resultantes:
+
+    ```bash
+    texto_sem_mais_quebras=$(echo "$texto_com_quebras" | sed ':a;N;$!ba;s/\n/ /g;s/ \{2,\}/ /g;s/ \n/\n/g')
+    ```
+
+   - **`sed ':a;N;$!ba;s/\n/ /g`**: Este comando une todas as linhas em uma única linha, substituindo quebras de linha (`\n`) por espaços.
+
+   - **`s/ \{2,\}/ /g`**: Remove múltiplos espaços consecutivos, deixando apenas um espaço.
+   
+   - **`s/ \n/\n/g`**: Restaura a quebra de linha entre parágrafos ao final do texto.
+
+3. **Usar o `translate-shell` para traduzir o texto processado:** Após remover as quebras de linha indesejadas e ajustar os espaços, você pode traduzir o texto usando o comando abaixo:
+
+    ```bash
+    trans -brief en:pt-BR "$texto_sem_mais_quebras"
+    ```
+
+Agora você tem uma nova variável `texto_sem_mais_quebras`, que contém o texto processado sem quebras de linha internas e com a formatação desejada. Essa variável pode ser usada para tradução ou outras manipulações conforme necessário.
+
 
 ### 
 
@@ -551,4 +590,4 @@ Para remover as quebras de linhas, traduzir e salvar em um arquivo `.txt`, você
 
 [2] OPENAI. ***Vs code: editor popular.*** Disponível em: <https://chat.openai.com/c/b640a25d-f8e3-4922-8a3b-ed74a2657e42> (texto adaptado). ChatGPT. Acessado em: 11/12/2023 08:51.
 
-[3] A., DAMIEN. ***Translate-shell, translate to any language from the command line:*** Disponível em: <https://ubunlog.com/en/translate-shell-traduce-terminal/>. Ubunlog. Acessado em: 30/01/2024 22:44.
+[3] A., DAMIEN. ***Translate-shell, translate to any language from the command line.*** Disponível em: <https://ubunlog.com/en/translate-shell-traduce-terminal/>. Ubunlog. Acessado em: 30/01/2024 22:44.
