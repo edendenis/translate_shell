@@ -35,6 +35,8 @@
 
 # ## 1. Como configurar/instalar/usar o `translate-shell` no `Linux Ubuntu` [1]
 # 
+# **ATENÇÃO**: Você pode utilizar o `pdftotext` em arquivos `.pdf` para converter em `.txt` e depois traduzir para o português brasileiro com os comandos do `translate-shell` que serão apresentados depois do passo a passo de como instalar o `translate-shell`.
+# 
 # Para instalar o `translate-shell` no `Linux Ubuntu`, você pode seguir estes passos:
 # 
 # 1. Abra o `Terminal Emulator`. Você pode fazer isso pressionando: `Ctrl + Alt + T`
