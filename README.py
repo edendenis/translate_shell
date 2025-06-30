@@ -32,10 +32,14 @@
 # ### `pdfunite`
 # 
 # O `pdfunite` é uma ferramenta de linha de comando, integrante do pacote Poppler, que permite mesclar vários arquivos PDF em um único documento. Basta informar na chamada os arquivos de entrada e o nome do PDF de saída. É ideal para scripts e fluxos de trabalho automatizados de organização e consolidação de documentos.
+# 
+# ### `tesseract`
+# 
+# O `Tesseract` é um mecanismo de OCR (Reconhecimento Óptico de Caracteres) de código aberto, originalmente desenvolvido pela HP e atualmente mantido pelo Google. Ele converte imagens de texto em texto editável, suportando múltiplos idiomas e formatos de imagem, além de oferecer opções de treinamento para reconhecer fontes e caracteres personalizados. Muito utilizado em projetos de digitalização e extração automatizada de dados, o `Tesseract` é integrado a diversas aplicações e bibliotecas em linguagens como `Python`, `Java` e `C++`.
 
 # ## 1. Como configurar/instalar/usar o `translate-shell` no `Linux Ubuntu` [1]
 # 
-# **ATENÇÃO**: Você pode utilizar o `pdftotext` em arquivos `.pdf` para converter em `.txt` e depois traduzir para o português brasileiro com os comandos do `translate-shell` que serão apresentados depois do passo a passo de como instalar o `translate-shell`.
+# **ATENÇÃO**: Você pode utilizar o `pdftotext` e/ou o `tesseract` em arquivos `.pdf` para converter em `.txt` e depois traduzir para o português brasileiro com os comandos do `translate-shell` que serão apresentados depois do passo a passo de como instalar o `translate-shell`.
 # 
 # Para instalar o `translate-shell` no `Linux Ubuntu`, você pode seguir estes passos:
 # 
