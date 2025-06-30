@@ -12,7 +12,23 @@ _In this document are contained the main commands and settings to set up/install
 
 ### `translate-shell`
 
-O `translate-shell` é uma ferramenta de linha de comando de código aberto que oferece a capacidade de traduzir texto e palavras entre vários idiomas diretamente do terminal. Ele utiliza serviços de tradução online, como o Google Translate, para fornecer traduções rápidas e precisas. O `translate-shell` suporta uma ampla variedade de idiomas e pode ser usado tanto para traduções simples de palavras e frases quanto para traduções mais complexas de texto completo. Além disso, ele oferece opções avançadas, como tradução de áudio, detecção automática de idioma e pronúncia de palavras, tornando-se uma ferramenta útil para estudantes, viajantes e qualquer pessoa que precise de traduções instantâneas e convenientes diretamente do terminal.
+O `translate-shell` é uma ferramenta de linha de comando de código aberto que oferece a capacidade de traduzir texto e palavras entre vários idiomas diretamente do `Terminal Emulator`. Ele utiliza serviços de tradução _online_, como o `Google Translate`, para fornecer traduções rápidas e precisas. O `translate-shell` suporta uma ampla variedade de idiomas e pode ser usado tanto para traduções simples de palavras e frases quanto para traduções mais complexas de texto completo. Além disso, ele oferece opções avançadas, como tradução de áudio, detecção automática de idioma e pronúncia de palavras, tornando-se uma ferramenta útil para estudantes, viajantes e qualquer pessoa que precise de traduções instantâneas e convenientes diretamente do `Terminal Emulator`.
+
+### `pdftotext`
+
+O `pdftotext` é uma ferramenta de linha de comando, geralmente parte do pacote `Poppler` ou `Xpdf`, que converte o conteúdo de arquivos PDF em texto simples. Ele extrai o texto mantendo a ordem de leitura e pode preservar ou não a formatação de colunas e quebras de linha, conforme opções configuráveis. É muito útil para automatizar a extração de texto de documentos PDF em _scripts_ e fluxos de trabalho de análise de dados ou indexação.
+
+### `pdfimages`
+
+O `pdfimages` é uma ferramenta para extrair imagens de arquivos PDF. Caso seu PDF contenha imagens e você queira extraí-las, pode ser útil antes de uma conversão com OCR, como no caso de um PDF digitalizado.
+
+### `qpdf`
+
+O `qpdf` é uma ferramenta para manipular arquivos PDF de maneira avançada. Você pode usá-lo para fazer operações como quebra de PDFs, mesclagem, e até mesmo para manipular metadados.
+
+### `pdfunite`
+
+O `pdfunite` é uma ferramenta de linha de comando, integrante do pacote Poppler, que permite mesclar vários arquivos PDF em um único documento. Basta informar na chamada os arquivos de entrada e o nome do PDF de saída. É ideal para scripts e fluxos de trabalho automatizados de organização e consolidação de documentos.
 
 ## 1. Como configurar/instalar/usar o `translate-shell` no `Linux Ubuntu` [1]
 
@@ -23,24 +39,55 @@ Para instalar o `translate-shell` no `Linux Ubuntu`, você pode seguir estes pas
 
 2. Certifique-se de que seu sistema esteja limpo e atualizado.
 
-    2.1 Limpar o `cache` do gerenciador de pacotes `apt`. Especificamente, ele remove todos os arquivos de pacotes (`.deb`) baixados pelo `apt` e armazenados em `/var/cache/apt/archives/`. Digite o seguinte comando: `sudo apt clean` 
+    2.1 Limpar o `cache` do gerenciador de pacotes `apt`. Especificamente, ele remove todos os arquivos de pacotes (`.deb`) baixados pelo `apt` e armazenados em `/var/cache/apt/archives/`. Digite o seguinte comando:
     
-    2.2 Remover pacotes `.deb` antigos ou duplicados do cache local. É útil para liberar espaço, pois remove apenas os pacotes que não podem mais ser baixados (ou seja, versões antigas de pacotes que foram atualizados). Digite o seguinte comando: `sudo apt autoclean`
-
-    2.3 Remover pacotes que foram automaticamente instalados para satisfazer as dependências de outros pacotes e que não são mais necessários. Digite o seguinte comando: `sudo apt autoremove -y`
-
-    2.4 Buscar as atualizações disponíveis para os pacotes que estão instalados em seu sistema. Digite o seguinte comando e pressione `Enter`: `sudo apt update`
-
-    2.5 **Corrigir pacotes quebrados**: Isso atualizará a lista de pacotes disponíveis e tentará corrigir pacotes quebrados ou com dependências ausentes: `sudo apt --fix-broken install`
-
-    2.6 Limpar o `cache` do gerenciador de pacotes `apt`. Especificamente, ele remove todos os arquivos de pacotes (`.deb`) baixados pelo `apt` e armazenados em `/var/cache/apt/archives/`. Digite o seguinte comando: `sudo apt clean` 
+    ```bash
+    sudo apt clean
+    ``` 
     
-    2.7 Para ver a lista de pacotes a serem atualizados, digite o seguinte comando e pressione `Enter`:  `sudo apt list --upgradable`
-
-    2.8 Realmente atualizar os pacotes instalados para as suas versões mais recentes, com base na última vez que você executou `sudo apt update`. Digite o seguinte comando e pressione `Enter`: `sudo apt full-upgrade -y`
+    2.2 Remover pacotes `.deb` antigos ou duplicados do `cache` local. É útil para liberar espaço, pois remove apenas os pacotes que não podem mais ser baixados (ou seja, versões antigas de pacotes que foram atualizados). Digite o seguinte comando:
     
+    ```bash
+    sudo apt autoclean
+    ```
 
-3. Para instalar o Google Translate para ser usado a partir do terminal no `Linux Ubuntu`, você pode usar uma ferramenta chamada `translate-shell`. Ela é um aplicativo de linha de comando que permite usar o Google Translate, Bing Translator, Yandex. Translate e outros serviços de tradução diretamente do terminal. Aqui estão os passos para instalá-lo:
+    2.3 Remover pacotes que foram automaticamente instalados para satisfazer as dependências de outros pacotes e que não são mais necessários. Digite o seguinte comando:
+    
+    ```bash
+    sudo apt autoremove -y
+    ```
+
+    2.4 Buscar as atualizações disponíveis para os pacotes que estão instalados em seu sistema. Digite o seguinte comando e pressione `Enter`: 
+    
+    ```bash
+    sudo apt update
+    ```
+
+    2.5 **Corrigir pacotes quebrados**: Isso atualizará a lista de pacotes disponíveis e tentará corrigir pacotes quebrados ou com dependências ausentes:
+    
+    ```bash
+    sudo apt --fix-broken install
+    ```
+
+    2.6 Limpar o `cache` do gerenciador de pacotes `apt`. Especificamente, ele remove todos os arquivos de pacotes (`.deb`) baixados pelo `apt` e armazenados em `/var/cache/apt/archives/`. Digite o seguinte comando:
+    
+    ```bash
+    sudo apt clean
+    ``` 
+    
+    2.7 Para ver a lista de pacotes a serem atualizados, digite o seguinte comando e pressione `Enter`:  
+    
+    ```bash
+    sudo apt list --upgradable
+    ```
+
+    2.8 Realmente atualizar os pacotes instalados para as suas versões mais recentes, com base na última vez que você executou `sudo apt update`. Digite o seguinte comando e pressione `Enter`:
+    
+    ```bash
+    sudo apt full-upgrade -y
+    ```
+
+3. Para instalar o `Google Translate` para ser usado a partir do terminal no `Linux Ubuntu`, você pode usar uma ferramenta chamada `translate-shell`. Ela é um aplicativo de linha de comando que permite usar o Google Translate, Bing Translator, Yandex. Translate e outros serviços de tradução diretamente do terminal. Aqui estão os passos para instalá-lo:
 
 4. **Instale o `Translate-Shell`:** Após atualizar os pacotes, instale o `translate-shell` usando o seguinte comando: `sudo apt install translate-shell -y`
 
