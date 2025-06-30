@@ -98,13 +98,25 @@
 
 # 3. Para instalar o `Google Translate` para ser usado a partir do terminal no `Linux Ubuntu`, você pode usar uma ferramenta chamada `translate-shell`. Ela é um aplicativo de linha de comando que permite usar o Google Translate, Bing Translator, Yandex. Translate e outros serviços de tradução diretamente do terminal. Aqui estão os passos para instalá-lo:
 # 
-# 4. **Instale o `Translate-Shell`:** Após atualizar os pacotes, instale o `translate-shell` usando o seguinte comando: `sudo apt install translate-shell -y`
+# 4. **Instale o `Translate-Shell`:** Após atualizar os pacotes, instale o `translate-shell` usando o seguinte comando:
 # 
-# 5. **Verifique a Instalação:** Depois de instalar, você pode verificar se a instalação foi bem-sucedida executando o comando `trans`: `trans -V`
+#     ```bash
+#     sudo apt install translate-shell -y
+#     ```
 # 
-# 6. **Como Usar:** Para usar o `translate-shell`, você pode simplesmente digitar `trans` seguido pelo texto que deseja traduzir. Por exemplo, para traduzir `"Hello World"` do inglês (`en`) para português (`pt-BR`), você usaria: `trans en:pt-BR "Hello World"`
+# 5. **Verifique a Instalação:** Depois de instalar, você pode verificar se a instalação foi bem-sucedida executando o comando `trans`:
 # 
-# Lembre-se de que o `translate-shell` usa APIs de tradução online, então você precisará de uma conexão com a internet para usar essa ferramenta.
+#     ```bash
+#     trans -V
+#     ```
+# 
+# 6. **Como Usar:** Para usar o `translate-shell`, você pode simplesmente digitar `trans` seguido pelo texto que deseja traduzir. Por exemplo, para traduzir `"Hello World"` do inglês (`en`) para português (`pt-BR`), você usaria:
+#     
+#     ```bash
+#     trans en:pt-BR "Hello World"
+#     ```
+# 
+# Lembre-se de que o `translate-shell` usa APIs de tradução _online_, então você precisará de uma conexão com a internet para usar essa ferramenta.
 
 # ### 1.1 Código completo para configurar/instalar/usar
 # 
@@ -114,7 +126,7 @@
 # 
 # 2. Digite o seguinte comando e pressione `Enter`:
 # 
-#     ```
+#     ```bash
 #     sudo apt clean
 #     sudo apt autoclean
 #     sudo apt autoremove -y
@@ -137,7 +149,7 @@
 # 
 # 1. Vou traduzir `"saudável"` para inglês. Para isso só teremos que escrever no terminal (`Ctrl + Alt + T`):
 # 
-#     ```
+#     ```bash
 #     trans saúde
 #     saúde
 # 
@@ -161,7 +173,7 @@
 # 
 # 1. Podemos traduzir uma palavra (neste caso a mesma do exemplo anterior) para russo (por exemplo) usando o seguinte comando:
 # 
-#     ```
+#     ```bash
 #     trans :ru saúde
 #     saúde
 # 
@@ -180,7 +192,7 @@
 # 
 # 1. Para traduzir uma palavra para mais de um idioma, poderemos utilizar o seguinte comando (Neste exemplo, vou traduzir a palavra saúde para inglês e russo):
 # 
-#     ```
+#     ```bash
 #     trans :en+ru saúde
 #     saúde
 # 
@@ -215,7 +227,7 @@
 # 
 # 1. Para traduzir uma frase, basta usar a frase entre aspas, como você pode ver abaixo. O exemplo a seguir será traduzido do inglês para o português brasileiro:
 # 
-#     ```
+#     ```bash
 #     trans :pt-BR "What is going on your life"
 #     What is going on your life
 # 
@@ -233,7 +245,7 @@
 # 
 # 1. Modo dicionário. Para usar esta ferramenta como dicionário, basta **adicionar a opção `-d`** ao comando:
 # 
-#     ```
+#     ```bash
 #     trans -d :pt-BR Thanks
 #     Thanks
 # 
@@ -267,7 +279,7 @@
 # 
 # 1. Para traduzir um arquivo precisaremos indicar o caminho do arquivo a ser traduzido. Use o seguinte formato no terminal (`Ctrl + Alt + T`):
 # 
-#     ```
+#     ```bash
 #     trans -t pt-BR < /home/edendenis/Documents/Downloads/linux_unix/ubuntu/translate_shell/text.txt
 # 
 #     To translate a file we will need to indicate the path of the file to be translated. Use the following format in the terminal (Ctrl + Alt + T):
@@ -287,7 +299,7 @@
 # 
 # 1. Para traduzir um arquivo de legendas (`legendas.srt`) do inglês para o português e salvar o resultado em um novo arquivo sem substituir o arquivo original. Você pode fazer isso especificando um novo nome de arquivo de saída. Aqui está como você pode modificar o código:
 # 
-#     ```
+#     ```bash
 #     # Define o caminho do arquivo de entrada
 #     input_file="/home/edendenis/Documents/Downloads/linux_unix/ubuntu/translate_shell/text.txt"
 # 
@@ -316,7 +328,7 @@
 # 
 # 1. Para abrir o `shell` interativo do Translate, teremos que nos certificar de que especificamos o idioma de origem e o idioma de destino antes de iniciar um shell interativo . Neste exemplo, vou traduzir a palavra obrigado do inglês para o português brasileiro:
 # 
-#     ``` 
+#     ```bash 
 #     trans -shell en:pt-BR thanks
 #     Translate Shell
 #     (:q to quit)
@@ -354,7 +366,11 @@
 
 # ### 2.8 Obtenha os códigos dos idiomas disponíveis
 # 
-# 1. Para descobrir os códigos de idioma que podemos usar, basta executar o seguinte comando: `trans -T`
+# 1. Para descobrir os códigos de idioma que podemos usar, basta executar o seguinte comando:
+# 
+#     ```bash
+#     trans -T
+#     ```
 
 # ### 2.9 Habilitar modo conciso
 # 
@@ -362,7 +378,11 @@
 # 
 # Para exibir o resultado conciso no `translate-shell`, você pode usar a opção `-brief` ou `-b`. Isso reduzirá a saída a uma única linha concisa, mostrando a tradução principal sem muitos detalhes adicionais.
 # 
-# 1. Aqui está um exemplo: `trans -brief en:pt-BR "Hello, how are you?"`
+# 1. Aqui está um exemplo:
+# 
+#     ```bash
+#     trans -brief en:pt-BR "Hello, how are you?"
+#     ```
 # 
 #     Isso exibirá a tradução concisa da frase `"Hello, how are you?"` para o português brasileiro em uma única linha.
 # 
@@ -370,7 +390,11 @@
 # 
 # #### 2.9.2 Exibir apenas um dos resultados
 # 
-# É possível fazer com que o translate-shell exiba apenas um dos resultados da tradução. Você pode usar a opção `-brief` ou `-b` seguida pelo número do resultado que você deseja exibir. Aqui está como fazer isso: `trans -brief=2 en:pt-BR "Hello, how are you?"`
+# É possível fazer com que o translate-shell exiba apenas um dos resultados da tradução. Você pode usar a opção `-brief` ou `-b` seguida pelo número do resultado que você deseja exibir. Aqui está como fazer isso:
+# 
+#     ```bash
+#     trans -brief=2 en:pt-BR "Hello, how are you?"
+#     ```
 #         
 # Neste exemplo, o `-brief=1` indica que você deseja exibir apenas o primeiro resultado da tradução. Você pode substituir `1` pelo número do resultado que deseja exibir.
 # 
@@ -380,13 +404,17 @@
 
 # ### 2.9 Consultar os mecanismos de tradução
 # 
-# 1. Para consultar os mecanismos de tradução disponíveis no `translate-shell`, você pode usar o seguinte comando: `trans -list-engines`
+# 1. Para consultar os mecanismos de tradução disponíveis no `translate-shell`, você pode usar o seguinte comando:
+# 
+#     ```bash
+#     trans -list-engines
+#     ```
 # 
 #     Este comando lista os mecanismos de tradução suportados pelo `translate-shell` e exibe informações sobre cada um deles, incluindo seus nomes e descrições.
 # 
 #     Ao executar esse comando, você verá uma lista de mecanismos de tradução disponíveis, o que permitirá que você escolha qual mecanismo deseja usar ao realizar traduções com o `translate-shell`. Lembre-se de que os mecanismos podem variar em termos de qualidade e limitações, portanto, escolha o mais adequado para suas necessidades:
 # 
-#     ```
+#     ```bash
 #     trans -list-engines
 # 
 #     aspell
@@ -400,9 +428,13 @@
 #     
 # ### 2.9.1 Alterar o mecanismo de tradução
 # 
-# Para alterar o mecanismo de tradução padrão do Google para outro mecanismo, como o Bing ou Youdaozhiyun, você pode usar a opção -e seguida do nome do mecanismo desejado. Aqui estão alguns exemplos:
+# Para alterar o mecanismo de tradução padrão do Google para outro mecanismo, como o Bing ou Youdaozhiyun, você pode usar a opção `-e` seguida do nome do mecanismo desejado. Aqui estão alguns exemplos:
 # 
-# 1. Alterar para o mecanismo Bing Translator: `trans -e bing "Hello, how are you?"`
+# 1. Alterar para o mecanismo Bing Translator:
+# 
+#     ```bash
+#     trans -e bing "Hello, how are you?"
+#     ```
 # 
 # Certifique-se de ter os mecanismos de tradução desejados instalados e configurados corretamente no seu sistema antes de usá-los com o `translate-shell`. Você pode verificar a documentação do `translate-shell` ou a ajuda do comando `trans` para obter mais informações sobre os mecanismos de tradução disponíveis e como configurá-los.
 # 
@@ -412,7 +444,11 @@
 # 
 # Para traduzir um texto, por exemplo, a partir do alfabeto cirílico, pois mesmo indicando o idioma como `ru` nem sempre o texto é traduzido, pode ser usando o comando `auto` conforme abaixo:
 # 
-# 1. Experimente usar a opção `auto` para especificar que o texto de entrada é do idioma detectado automaticamente. Aqui está o comando atualizado: `trans -brief auto:pt "Москва"`
+# 1. Experimente usar a opção `auto` para especificar que o texto de entrada é do idioma detectado automaticamente. Aqui está o comando atualizado:
+# 
+#     ```bash
+#     trans -brief auto:pt "Москва"
+#     ```
 # 
 # Isso deve corrigir o problema e fornecer a tradução correta para o texto `"Москва"`.
 
@@ -426,13 +462,17 @@
 # 
 # 1. **Defina o texto com quebras de linha:**
 # 
-#     ```
+#     ```bash
 #     texto_com_quebras="Este é um exemplo de
 #     um texto com quebras
 #     de linha."
 #     ```
 # 
-# 2. **Remover completamente as quebras de linha:** `texto_sem_quebras=$(echo "$texto_com_quebras" | tr -d '\n')`
+# 2. **Remover completamente as quebras de linha:**
+# 
+#     ```bash
+#     texto_sem_quebras=$(echo "$texto_com_quebras" | tr -d '\n')
+#     ```
 # 
 #     - **`texto_com_quebras`:** Esta é uma variável que contém o texto original com quebras de linha.
 # 
@@ -456,7 +496,7 @@
 # 
 # 1. **Defina o texto com multíplas quebras de linha:**
 # 
-#     ```
+#     ```bash
 #     texto_com_quebras="Este é o primeiro parágrafo.
 # 
 #     Este é o segundo parágrafo.
@@ -465,11 +505,19 @@
 #     Este é o terceiro parágrafo."
 #     ```
 # 
-# 2. **Remover completamente as múltiplas quebras de linha emanter apenas uma:** `texto_sem_quebras=$(echo "$texto_com_quebras" | sed '/^$/N;/^\n$/D')`
+# 2. **Remover completamente as múltiplas quebras de linha emanter apenas uma:** 
+#     
+#     ```bash
+#     texto_sem_quebras=$(echo "$texto_com_quebras" | sed '/^$/N;/^\n$/D')
+#     ```
 # 
 #     Agora, `$texto_sem_quebras` conterá o texto com apenas uma quebra de linha entre os parágrafos. Em seguida, você pode usar o `translate-shell` para traduzir o texto sem quebras de linha:
 # 
-# 3. **Usar o `translate-shell` para traduzir o texto sem quebras de linha:** `trans -brief en:pt-BR "$texto_sem_quebras"`
+# 3. **Usar o `translate-shell` para traduzir o texto sem quebras de linha:**
+# 
+#     ```bash
+#     trans -brief en:pt-BR "$texto_sem_quebras"
+#     ```
 # 
 
 # ### 3.3 Uma quebra de linha e multíplas quebras de linha
@@ -480,20 +528,24 @@
 # 
 # 1. **Remover quebras de linha individuais:** Defina o texto com quebras de linha:
 # 
-#     ```
+#     ```bash
 #     texto_com_quebras="Este é um exemplo de
 #     um texto com quebras
 #     de linha."
 #     ```
 # 
-# 2. **Remova as quebras de linha individuais:** `texto_sem_quebras_individuais=$(echo "$texto_com_quebras" | tr -d '\n')`
+# 2. **Remova as quebras de linha individuais:**
+# 
+#     ```bash
+#     texto_sem_quebras_individuais=$(echo "$texto_com_quebras" | tr -d '\n')
+#     ```
 # 
 
 # #### 3.3.2 Multíplas quebras de linha
 # 
 # 1. **Remover múltiplas quebras de linha entre os parágrafos:** Defina o texto com múltiplas quebras de linha entre os parágrafos:
 # 
-#     ```
+#     ```bash
 #     texto_com_mais_quebras="Este é o primeiro parágrafo.
 # 
 #     Este é o segundo parágrafo.
@@ -502,9 +554,17 @@
 #     Este é o terceiro parágrafo."
 #     ```
 # 
-# 2. **Remova múltiplas quebras de linha entre os parágrafos:** `texto_sem_mais_quebras=$(echo "$texto_com_mais_quebras" | sed '/^$/N;/^\n$/D')`
+# 2. **Remova múltiplas quebras de linha entre os parágrafos:** 
+#     
+#     ```bash
+#     texto_sem_mais_quebras=$(echo "$texto_com_mais_quebras" | sed '/^$/N;/^\n$/D')
+#     ```
 # 
-# 3. **Usar o `translate-shell` para traduzir o texto sem quebras de linha:** `trans -brief en:pt-BR "$texto_sem_mais_quebras"`
+# 3. **Usar o `translate-shell` para traduzir o texto sem quebras de linha:**
+# 
+#     ```bash
+#     trans -brief en:pt-BR "$texto_sem_mais_quebras"
+#     ```
 # 
 # Agora, você tem duas variáveis: `texto_sem_quebras_individuais` e `texto_sem_mais_quebras`, cada uma contendo o texto processado sem as quebras de linha desejadas. Você pode usar essas variáveis separadamente para tradução ou combiná-las de acordo com suas necessidades.
 
@@ -548,21 +608,49 @@
 # 
 # ### 4.1 Traduzir e salvar um arquivo `.txt`
 # 
-# 1. **Defina o nome do arquivo de entrada**: `nome_arquivo_entrada="input.txt"`
+# 1. **Defina o nome do arquivo de entrada**:
 # 
-# 2. **Defina o nome do arquivo de saída**: `nome_arquivo_saida="output_$nome_arquivo_entrada"`
+#     ```bash
+#     nome_arquivo_entrada="input.txt"
+#     ```
 # 
-# 3. **Defina o idioma de origem**: Código de idioma de origem, por exemplo, `en` para inglês: `idioma_origem="en"`
+# 2. **Defina o nome do arquivo de saída**:
 # 
-# 4. **Defina o idioma de destino**: Código de idioma de destino, por exemplo, `pt-BR` para português brasileiro: `idioma_destino="pt-BR"`
+#     ```bash
+#     nome_arquivo_saida="output_$nome_arquivo_entrada"
+#     ```
 # 
-# 5. **Para traduzir o conteúdo de um arquivo `.txt` e salvá-lo em um novo arquivo `.txt`, você pode fazer isso em um sistema `Unix/Linux`:** `cat "$nome_arquivo_entrada" | trans -brief "$idioma_origem":"$idioma_destino" -no-ansi > "output_$nome_arquivo_saida_$idioma_destino"`
+# 3. **Defina o idioma de origem**: Código de idioma de origem, por exemplo, `en` para inglês:
+# 
+#     ```bash
+#     idioma_origem="en"
+#     ```
+# 
+# 4. **Defina o idioma de destino**: Código de idioma de destino, por exemplo, `pt-BR` para português brasileiro:
+# 
+#     ```bash
+#     idioma_destino="pt-BR"
+#     ```
+# 
+# 5. **Para traduzir o conteúdo de um arquivo `.txt` e salvá-lo em um novo arquivo `.txt`, você pode fazer isso em um sistema `Unix/Linux`:**
+# 
+#     ```bash
+#     cat "$nome_arquivo_entrada" | trans -brief "$idioma_origem":"$idioma_destino" -no-ansi > "output_$nome_arquivo_saida_$idioma_destino"
+#     ```
 # 
 #     Este comando irá ler o conteúdo do arquivo `input.txt`, traduzir o texto do inglês para o português brasileiro usando o `trans`, e salvar a tradução no arquivo `output.txt`.
 # 
-# 6. **# Exibir uma mensagem indicando que a tradução foi concluída**: `echo "A tradução do arquivo $nome_arquivo_entrada para $idioma_destino foi concluída e salva em output_$nome_arquivo_saida."`
+# 6. **# Exibir uma mensagem indicando que a tradução foi concluída**:
 # 
-# 7. **(Opcional) Retornar o arquivo original para o texto inicial**: Se desejar substituir o texto traduzido de volta no arquivo original `.txt`, você pode usar comandos de edição de texto, como o `sed`. Por exemplo, se quiser adicionar o texto traduzido em uma nova linha após cada linha no arquivo original, você pode usar o seguinte comando: `cat output.txt > input.txt`
+#     ```bash
+#     echo "A tradução do arquivo $nome_arquivo_entrada para $idioma_destino foi concluída e salva em output_$nome_arquivo_saida."
+#     ```
+# 
+# 7. **(Opcional) Retornar o arquivo original para o texto inicial**: Se desejar substituir o texto traduzido de volta no arquivo original `.txt`, você pode usar comandos de edição de texto, como o `sed`. Por exemplo, se quiser adicionar o texto traduzido em uma nova linha após cada linha no arquivo original, você pode usar o seguinte comando:
+# 
+#     ```bash
+#     cat output.txt > input.txt
+#     ```
 # 
 #     Este comando irá substituir o conteúdo do arquivo `input.txt` pelo texto traduzido contido no arquivo `output.txt`.
 # 
@@ -573,19 +661,43 @@
 # 
 # Para sobrescrever o mesmo arquivo de entrada com o resultado da tradução, você pode redirecionar a saída do comando para o arquivo original. Aqui está um exemplo:
 # 
-# 1. **Defina o nome do arquivo de entrada**: `nome_arquivo_entrada="input.txt"`
+# 1. **Defina o nome do arquivo de entrada**:
 # 
-# 2. **Defina o nome do arquivo de saída**: `nome_arquivo_saida="output_$nome_arquivo_entrada"`
+#     ```bash
+#     nome_arquivo_entrada="input.txt"
+#     ```
 # 
-# 3. **Defina o idioma de origem**: Código de idioma de origem, por exemplo, `en` para inglês: `idioma_origem="en"`
+# 2. **Defina o nome do arquivo de saída**: 
 # 
-# 4. **Defina o idioma de destino**: Código de idioma de destino, por exemplo, `pt-BR` para português brasileiro: `idioma_destino="pt-BR"`
+#     ```bash
+#     nome_arquivo_saida="output_$nome_arquivo_entrada"
+#     ```
 # 
-# 5. Suponha que você tenha um arquivo chamado `input.txt` que deseja traduzir e sobrescrever com a tradução: `trans -brief "$idioma_origem":"$idioma_destino" -no-ansi < "$nome_arquivo_entrada" > "output_$nome_arquivo_saida_$idioma_destino"`
+# 3. **Defina o idioma de origem**: Código de idioma de origem, por exemplo, `en` para inglês:
+# 
+#     ```bash
+#     idioma_origem="en"
+#     ```
+# 
+# 4. **Defina o idioma de destino**: Código de idioma de destino, por exemplo, `pt-BR` para português brasileiro:
+# 
+#     ```bash
+#     idioma_destino="pt-BR"
+#     ```
+# 
+# 5. Suponha que você tenha um arquivo chamado `input.txt` que deseja traduzir e sobrescrever com a tradução:
+# 
+#     ```bash
+#     trans -brief "$idioma_origem":"$idioma_destino" -no-ansi < "$nome_arquivo_entrada" > "output_$nome_arquivo_saida_$idioma_destino"
+#     ```
 # 
 #     Neste comando, a tradução é realizada a partir do conteúdo de `input.txt` e o resultado é redirecionado para `output.txt`. Como a saída está sendo redirecionada para um novo arquivo, o arquivo original `input.txt` não é afetado.
 # 
-# 6. Se você deseja sobrescrever diretamente o arquivo original `input.txt` com a tradução, você pode usar o seguinte comando: `trans -brief "$idioma_origem":"$idioma_destino" -no-ansi < "$nome_arquivo_entrada" > temp.txt && mv temp.txt "$nome_arquivo_entrada"`
+# 6. Se você deseja sobrescrever diretamente o arquivo original `input.txt` com a tradução, você pode usar o seguinte comando:
+# 
+#     ```bash
+#     trans -brief "$idioma_origem":"$idioma_destino" -no-ansi < "$nome_arquivo_entrada" > temp.txt && mv temp.txt "$nome_arquivo_entrada"
+#     ```
 # 
 #     Neste comando:
 # 
@@ -610,15 +722,31 @@
 # 
 # Para traduzir um texto, por exemplo, a partir do alfabeto cirílico, pois mesmo indicando o idioma como `ru` nem sempre o texto é traduzido, pode ser usando o comando `auto` conforme abaixo:
 # 
-# 1. **Defina o nome do arquivo de entrada**: `nome_arquivo_entrada="input.txt"`
+# 1. **Defina o nome do arquivo de entrada**:
+# 
+#     ```bash
+#     nome_arquivo_entrada="input.txt"
+#     ```
 # 
 # 2. **Defina o nome do arquivo de saída**: `nome_arquivo_saida="output"`
 # 
-# 3. **Defina o idioma de origem**: Código de idioma de origem, por exemplo, `en` para inglês: `idioma_origem="auto"`
+# 3. **Defina o idioma de origem**: Código de idioma de origem, por exemplo, `en` para inglês:
 # 
-# 4. **Defina o idioma de destino**: Código de idioma de destino, por exemplo, `pt-BR` para português brasileiro: `idioma_destino="pt-BR"`
+#     ```bash
+#     idioma_origem="auto"
+#     ```
 # 
-# 5. Para traduzir automaticamente o texto de entrada para o português brasileiro e depois salvar a saída em um arquivo de texto, você pode usar o seguinte comando: `cat "$nome_arquivo_entrada" | trans -brief "$idioma_origem":"$idioma_destino" -no-ansi > "$nome_arquivo_saida"`
+# 4. **Defina o idioma de destino**: Código de idioma de destino, por exemplo, `pt-BR` para português brasileiro:
+# 
+#     ```bash
+#     idioma_destino="pt-BR"
+#     ```
+# 
+# 5. Para traduzir automaticamente o texto de entrada para o português brasileiro e depois salvar a saída em um arquivo de texto, você pode usar o seguinte comando:
+# 
+#     ```bash
+#     cat "$nome_arquivo_entrada" | trans -brief "$idioma_origem":"$idioma_destino" -no-ansi > "$nome_arquivo_saida"
+#     ```
 # 
 #     Isso irá traduzir o texto do idioma detectado automaticamente para o português brasileiro e salvará a tradução no arquivo de saída especificado (`output.txt`).
 # 
@@ -627,15 +755,35 @@
 # 
 # Para remover as quebras de linhas, traduzir e salvar em um arquivo `.txt`, você deve seguir os passos abaixo:
 # 
-# 1. **Defina o nome do arquivo de entrada**: `nome_arquivo_entrada="input.txt"`
+# 1. **Defina o nome do arquivo de entrada**:
 # 
-# 2. **Defina o idioma de origem**: Código de idioma de origem, por exemplo, `en` para inglês: `idioma_origem="en"`
+#     ```bash
+#     nome_arquivo_entrada="input.txt"
+#     ```
 # 
-# 3. **Defina o idioma de destino**: Código de idioma de destino, por exemplo, `pt-BR` para português brasileiro: `idioma_destino="pt-BR"`
+# 2. **Defina o idioma de origem**: Código de idioma de origem, por exemplo, `en` para inglês:
 # 
-# 4. **Defina o nome do arquivo de saída**: `nome_arquivo_saida="output_$nome_arquivo_entrada"`
+#     ```bash
+#     idioma_origem="en"
+#     ```
 # 
-# 5. É possível combinar esses dois comandos para remover as quebras de linhas dos parágrafos e depois traduzir o texto. Você pode usar pipes para encadear os comandos, como mostrado abaixo: `awk '{printf "%s", (NF ? (NR>1 ? (/^[[:upper:]]/ ? "\n" : " ") : "") : "\n") $0} END {print ""}' "$nome_arquivo_entrada" | trans -brief "$idioma_origem":"$idioma_destino" -no-ansi > "$nome_arquivo_saida"`
+# 3. **Defina o idioma de destino**: Código de idioma de destino, por exemplo, `pt-BR` para português brasileiro:
+# 
+#     ```bash
+#     idioma_destino="pt-BR"
+#     ```
+# 
+# 4. **Defina o nome do arquivo de saída**:
+# 
+#     ```bash
+#     nome_arquivo_saida="output_$nome_arquivo_entrada"
+#     ```
+# 
+# 5. É possível combinar esses dois comandos para remover as quebras de linhas dos parágrafos e depois traduzir o texto. Você pode usar pipes para encadear os comandos, como mostrado abaixo:
+# 
+#     ```bash
+#     awk '{printf "%s", (NF ? (NR>1 ? (/^[[:upper:]]/ ? "\n" : " ") : "") : "\n") $0} END {print ""}' "$nome_arquivo_entrada" | trans -brief "$idioma_origem":"$idioma_destino" -no-ansi > "$nome_arquivo_saida"
+#     ```
 #     
 #     Isso irá ler o conteúdo do arquivo `input.txt`, remover as quebras de linha dos parágrafos usando o comando `tr -d '\n'`, e em seguida traduzir o texto para o português brasileiro usando o comando trans com a opção `-brief`, e salvar o resultado no arquivo `output.txt`.
 # 
